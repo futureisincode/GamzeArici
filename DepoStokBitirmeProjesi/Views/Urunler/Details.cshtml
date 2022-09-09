@@ -1,0 +1,158 @@
+﻿@model DepoStokBitirmeProjesi.StokDetayViewModel
+
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">AnaSayfa</a></li>
+                        <li class="breadcrumb-item active"><a asp-action="Index">Ürünler</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <h1>Ürün Detayı</h1>
+
+    <div>
+        <h4>Ürünler</h4>
+        <hr />
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- Default box -->
+            <div class="card card-solid">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="row justify-content-center">
+                            <table id="example1" class="table table-bordered table-striped">
+
+                            <dt class="col-6">
+                                    @Html.DisplayNameFor(model => model.Urunler.UrunAdi)
+                            </dt>
+                            <dd class="col-3">
+                                    @Html.DisplayFor(model => model.Urunler.UrunAdi)
+                            </dd>
+                            <dt class="col-6">
+                                    @Html.DisplayNameFor(model => model.Urunler.UrunResmi)
+                            </dt>
+                            <dd class="col-3">
+
+                                <img width="50px" src="~/yuklenenResimler/@Model.Urunler.UrunResmi" class="product-image" alt="Product Image">
+
+                            </dd>
+
+                            <dt class="col-6">
+                                    @Html.DisplayNameFor(model => model.Urunler.UrunStokAdeti)
+                            </dt>
+                            <dd class="col-3">
+                                    @Html.DisplayFor(model => model.Urunler.UrunStokAdeti)
+                            </dd>
+                            <dt class="col-6">
+                                    @Html.DisplayNameFor(model => model.Urunler.AlisFiyati)
+                            </dt>
+                            <dd class="col-3">
+                                    @Html.DisplayFor(model => model.Urunler.AlisFiyati)
+                            </dd>
+                            <dt class="col-6">
+                                    @Html.DisplayNameFor(model => model.Urunler.SatisFiyati)
+                            </dt>
+                            <dd class="col-3">
+                                    @Html.DisplayFor(model => model.Urunler.SatisFiyati)
+                            </dd>
+                            <dt class="col-6">
+                                    @Html.DisplayNameFor(model => model.Urunler.Aciklama)
+                            </dt>
+                            <dd class="col-3">
+                                    @Html.DisplayFor(model => model.Urunler.Aciklama)
+                            </dd>
+                            <dt class="col-6">
+                                    @Html.DisplayNameFor(model => model.Urunler.Depo)
+                            </dt>
+                            <dd class="col-3">
+                                    @Html.DisplayFor(model => model.Urunler.Depo.DepoAdi)
+                            </dd>
+                            </dl>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+
+    <table id="example1" class="table table-bordered table-striped">
+        <h1>Eski Stok Hareketleri</h1>
+        <thead>
+            <tr>
+                <th>
+                    Adet
+                </th>
+                <th>
+                    Fiyat
+                </th>
+                <th>
+                    Toplam
+                </th>
+                <th>
+                    Tarih
+                </th>
+                <th>
+                    İşlem Türü
+                </th>
+                <th>
+                    Depo
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StokHareketleri)
+            {
+                <tr class="col-sm-2">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ToplamFiyat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tarih)
+                    </td>
+                    <td>
+                        @(item.IslemTuru==1?"Giriş":"Çıkış")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Depo.DepoAdi)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Urunler.Id">Düzenle</a> |
+    <a asp-action="Index">Listeye Geri Dön</a>
+</div>

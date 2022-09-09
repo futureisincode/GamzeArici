@@ -1,0 +1,74 @@
+﻿@model DepoStokBitirmeProjesi.Entities.KasaHareketleri
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Kasa Hareketleri</li>
+                    </ol>
+                </div><!-- /.col -->
+
+            </div><!-- /.row -->
+            <div class="col-12">
+
+
+                <h1>Kasa Hareketi Silme</h1>
+
+                <h3>Kasa Hareketini Silmek İstediğinizden Emin Misiniz?</h3>
+                <div>
+                    <h4>Kasa Hareketleri</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.AlisFiyati)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.AlisFiyati)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.SatisFiyati)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.SatisFiyati)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Kar)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Kar)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.IslemTuru)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.IslemTuru)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Urun)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Urun.Aciklama)
+                        </dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Sil" class="btn btn-danger" /> |
+                        <a asp-action="Index">Listeye Geri Dön</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

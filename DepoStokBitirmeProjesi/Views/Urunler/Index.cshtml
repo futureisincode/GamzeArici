@@ -1,0 +1,101 @@
+﻿@model IEnumerable<DepoStokBitirmeProjesi.Entities.Urunler>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Ürünler</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Urunler</li>
+                    </ol>
+                </div><!-- /.col -->
+                <div>
+                    <a class="btn btn-sm btn-block btn-outline-primary  mt-3" href="/Urunler/Create">Yeni Ürün Ekle</a>
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+
+            <div class="row">
+
+
+                <div class="card col-12">
+                    <div class="card-header">
+                        <h3 class="card-title">Ürün Listeleme</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.UrunAdi)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.UrunResmi)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.UrunStokAdeti)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AlisFiyati)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SatisFiyati)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Aciklama)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Depo)
+                                    </th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UrunAdi)
+                                        </td>
+                                        <td>
+                                            <img width="100px" src="~/yuklenenResimler/@item.UrunResmi" alt="" />
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UrunStokAdeti)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AlisFiyati)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SatisFiyati)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Aciklama)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Depo.DepoAdi)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Id">Detay</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>

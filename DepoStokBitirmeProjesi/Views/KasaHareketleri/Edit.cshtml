@@ -1,0 +1,99 @@
+﻿@model DepoStokBitirmeProjesi.Entities.KasaHareketleri
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Kasa Hareketleri</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Kasa Hareketleri</li>
+                   
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+
+            <div class="row">
+
+
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Kasa Hareketi Düzenle</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                            <div class="card-body">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="AlisFiyati" class="control-label"></label>
+                <input asp-for="AlisFiyati" class="form-control" />
+                <span asp-validation-for="AlisFiyati" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SatisFiyati" class="control-label"></label>
+                <input asp-for="SatisFiyati" class="form-control" />
+                <span asp-validation-for="SatisFiyati" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kar" class="control-label"></label>
+                <input asp-for="Kar" class="form-control" />
+                <span asp-validation-for="Kar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IslemTuru" class="control-label"></label>
+                <input asp-for="IslemTuru" class="form-control" />
+                <span asp-validation-for="IslemTuru" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrunId" class="control-label"></label>
+                <select asp-for="UrunId" class="form-control" asp-items="ViewBag.UrunId"></select>
+                <span asp-validation-for="UrunId" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                            <input type="submit" value="Kaydet" class="btn btn-primary" />
+                            <a class="btn btn-info" asp-action="Index">Listeye Dön</a>
+                        </div>
+                    </form>
+                </div>
+                </div>
+
+            </div>
+
+
+
+@section Scripts {
+    @{
+        //await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        <script>
+                        $(function () {
+                        // Summernote
+                        $('#summernote').summernote()
+
+                        // CodeMirror
+                        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
+                            mode: "htmlmixed",
+                            theme: "monokai"
+                        });
+                        })
+                    </script>
+    }
+    }

@@ -1,0 +1,109 @@
+﻿@model DepoStokBitirmeProjesi.HomeDashboardViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">ANASAYFA</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item active"></li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>Toplam Satış Adeti<sup style="font-size: 20px"></sup></h3>
+
+                          @Model.ToplamSatisAdeti
+                           <p></p>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3> Toplam Satış Fiyatı <sup style="font-size: 20px"></sup></h3>
+                                                      @Model.ToplamSatisFiyati
+
+                            <p></p>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>Toplam Alış Adeti</h3>
+                            @Model.ToplamAlisAdeti
+                            <p></p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>Toplam Alış Fiyatı </h3>
+                            @Model.ToplamAlisFiyati
+                            <p></p>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <!-- Main row -->
+            <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card card-solid">
+            <div class="card-body pb-0">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 d-flex align-items-stretch flex-column">
+                        <h1>
+                            <b>
+                                STOK TAKİP SİTEMİZE HOŞGELDİNİZ
+                            </b>
+                        </h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<!-- /.card -->
+    </section>
+<!-- /.content -->
+</div>
+
+
+

@@ -1,0 +1,86 @@
+﻿@model DepoStokBitirmeProjesi.Entities.Urunler
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="">Anasayfa</a></li>
+                        <li class="breadcrumb-item active">Ürünler</li>
+                    </ol>
+                </div><!-- /.col -->
+
+            </div><!-- /.row -->
+            <div class="col-12">
+
+                <h1>ürün Silme</h1>
+
+                <h3>Ürünü Silmek İstediğinizden Emin Misiniz? </h3>
+                <div>
+                    <h4>Ürünler</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.UrunAdi)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.UrunAdi)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.UrunResmi)
+                        </dt>
+                        <dd class="col-sm-10">
+                            <img src="~/yuklenenResimler/@Model.UrunResmi" alt="" width="100px" />
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.UrunStokAdeti)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.UrunStokAdeti)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.AlisFiyati)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.AlisFiyati)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.SatisFiyati)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.SatisFiyati)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Aciklama)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Aciklama)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Depo)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Depo.DepoAdi)
+                        </dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Delete" class="btn btn-danger" /> |
+                        <a asp-action="Index">Listeye Geri Dön</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
